@@ -10,7 +10,7 @@ const {HoldingsModel}=require('./model/HoldingsModel');
 
 const {OrdersModel} = require('./model/OrdersModel');
 const {PositionsModel} = require('./model/PositionsModel');
-const PORT =process.env.PORT || 5000;
+const PORT =process.env.PORT || 10000;
 const uri =process.env.MONGO_URL;
 
 
@@ -33,9 +33,7 @@ mongoose.connect(uri)
     console.error("MongoDB connection error:", err);
   });
 
-  app.get("/", (req, res) => {
-    res.send("Welcome to the Stock Trading App!");
-});
+  
 // app.get("/addHoldings", async(req, res)=>{
 //     let tempHoldings=[
 //         {
@@ -246,6 +244,7 @@ app.post('/newOrder', async(req, res)=>{
 
         res.send("Order saved!")
     });
+
 
 app.listen(PORT, () => {
     console.log(`App started on port ${PORT}`);
