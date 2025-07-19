@@ -2,9 +2,9 @@
   "name": "zerodha-clone",
   "version": "1.0.0",
   "description": "",
-  "main": "backend/index.js",
+  "main": "frontend/index.js",
 "scripts": {
-  "start": "node backend/index.js"
+  "start": "node frontend/index.js"
 },
   "keywords": [],
   "author": "",
