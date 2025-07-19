@@ -33,6 +33,9 @@ mongoose.connect(uri)
     console.error("MongoDB connection error:", err);
   });
 
+  app.get("/", (req, res) => {
+    res.send("Welcome to the Stock Trading App!");
+});
 // app.get("/addHoldings", async(req, res)=>{
 //     let tempHoldings=[
 //         {
