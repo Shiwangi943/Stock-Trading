@@ -25,17 +25,13 @@ app.use(bodyParser.json());
 
 app.use('/api/auth', authRoutes);
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
-  console.log("MongoDB connected");
-  app.listen(5000, () => {
-    console.log("Server running on http://localhost:5000");
+mongoose.connect(uri)
+  .then(() => {
+    console.log("MongoDB connected");
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
   });
-}).catch((err) => {
-  console.error("MongoDB connection error:", err);
-});
 
 // app.get("/addHoldings", async(req, res)=>{
 //     let tempHoldings=[
