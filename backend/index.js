@@ -22,19 +22,17 @@ app.use(bodyParser.json());
 app.use('/api/auth', authRoutes);
 
 // MongoDB Connection and Server Start
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
-  console.log("MongoDB connected");
+mongoose.connect(uri)
+  .then(() => {
+    console.log("MongoDB connected");
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
+  });
 
   app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
   });
-
-}).catch((err) => {
-  console.error("MongoDB connection error:", err);
-});
 
 // ======= API Routes =======
 
